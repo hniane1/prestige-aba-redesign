@@ -136,7 +136,7 @@ if (particlesContainer) {
             if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(59, 169, 156, ${p.o})`;
+            ctx.fillStyle = `rgba(20, 184, 166, ${p.o})`;
             ctx.fill();
         });
         // Draw lines between close particles
@@ -149,7 +149,7 @@ if (particlesContainer) {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(59, 169, 156, ${0.08 * (1 - dist/120)})`;
+                    ctx.strokeStyle = `rgba(20, 184, 166, ${0.08 * (1 - dist/120)})`;
                     ctx.stroke();
                 }
             }
