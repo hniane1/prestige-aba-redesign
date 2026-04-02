@@ -1,152 +1,162 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// === PRELOADER ===
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+    }, 800);
+});
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) {
+            const offset = document.querySelector('.navbar').offsetHeight + 20;
+            window.scrollTo({ top: t.offsetTop - offset, behavior: 'smooth' });
+            // Close mobile menu
+            document.getElementById('navLinks')?.classList.remove('active');
+            document.getElementById('mobileToggle')?.classList.remove('active');
         }
     });
 });
 
-// Navbar scroll effect
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
+// === NAVBAR SCROLL ===
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+const topbarH = document.querySelector('.topbar')?.offsetHeight || 40;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.padding = '10px 0';
-        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.padding = '20px 0';
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-    }
-    
-    lastScroll = currentScroll;
+    const y = window.pageYOffset;
+    navbar.classList.toggle('scrolled', y > topbarH);
+    backToTop.classList.toggle('show', y > 400);
 });
 
-// Mobile menu toggle
+// === BACK TO TOP ===
+backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// === MOBILE MENU ===
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
+mobileToggle?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileToggle.classList.toggle('active');
+});
 
-if (mobileToggle && navLinks) {
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-    });
-}
-
-// FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-        // Close other items
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item) {
-                otherItem.classList.remove('active');
-            }
-        });
-        
-        // Toggle current item
-        item.classList.toggle('active');
+// === FAQ ACCORDION ===
+document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
     });
 });
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Show success message
-        alert('Thank you for your interest! We will contact you within 24 hours to schedule your consultation.');
-        
-        // Reset form
-        contactForm.reset();
-        
-        // In production, you would send this data to a server
-        console.log('Form data:', data);
-    });
-}
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all cards and sections
-document.querySelectorAll('.about-card, .service-card, .team-card, .testimonial-card, .why-feature').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// === FORM ===
+document.getElementById('contactForm')?.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you! We will contact you within 24 hours to schedule your consultation.');
+    e.target.reset();
 });
 
-// Smooth number counting animation for stats
-const animateValue = (element, start, end, duration) => {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        
-        const value = Math.floor(progress * (end - start) + start);
-        element.textContent = value + (element.dataset.suffix || '');
-        
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
-};
-
-// Animate stats when they come into view
-const statsObserver = new IntersectionObserver((entries) => {
+// === INTERSECTION OBSERVER — FADE UP ===
+const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const statNumber = entry.target.querySelector('.stat-number');
-            if (statNumber && !statNumber.dataset.animated) {
-                const text = statNumber.textContent;
-                const number = parseInt(text.match(/\d+/)[0]);
-                const suffix = text.replace(/\d+/, '');
-                
-                statNumber.dataset.suffix = suffix;
-                statNumber.dataset.animated = 'true';
-                animateValue(statNumber, 0, number, 2000);
-            }
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll(
+    '.about-card, .service-card, .why-card, .team-card, .testimonial-card, .insurance-card, .process-step, .trust-item, .faq-item'
+).forEach(el => {
+    el.classList.add('fade-up');
+    obs.observe(el);
+});
+
+// === COUNTING ANIMATION ===
+const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            if (el.dataset.animated) return;
+            el.dataset.animated = '1';
+            const end = parseInt(el.dataset.count);
+            const dur = 2000;
+            let start = 0;
+            const step = (ts) => {
+                if (!start) start = ts;
+                const p = Math.min((ts - start) / dur, 1);
+                // ease out quad
+                const ease = 1 - (1 - p) * (1 - p);
+                el.textContent = Math.floor(ease * end);
+                if (p < 1) requestAnimationFrame(step);
+                else el.textContent = end;
+            };
+            requestAnimationFrame(step);
         }
     });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.stat').forEach(stat => {
-    statsObserver.observe(stat);
-});
+document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
+// === PARTICLES (subtle floating dots in hero) ===
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+const particlesContainer = document.getElementById('particles');
+if (particlesContainer) {
+    particlesContainer.appendChild(canvas);
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
 
-console.log('Prestige ABA Therapy - Website Loaded Successfully');
+    let particles = [];
+    const resize = () => {
+        canvas.width = particlesContainer.offsetWidth;
+        canvas.height = particlesContainer.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 50; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2 + 1,
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5,
+            o: Math.random() * 0.3 + 0.1,
+        });
+    }
+
+    const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.x += p.dx; p.y += p.dy;
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(10, 189, 182, ${p.o})`;
+            ctx.fill();
+        });
+        // Draw lines between close particles
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(10, 189, 182, ${0.06 * (1 - dist/120)})`;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    };
+    animate();
+}
+
+console.log('✨ Prestige ABA Therapy — Redesigned');

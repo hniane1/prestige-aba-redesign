@@ -8,26 +8,53 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-ring"></div>
+            <span class="preloader-letter">P</span>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-content">
+                <div class="topbar-left">
+                    <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                    <span><i class="fas fa-map-marker-alt"></i> 525 Highlands Blvd, Suite 105, Coatesville, PA</span>
+                </div>
+                <div class="topbar-right">
+                    <span><i class="fas fa-clock"></i> Mon–Fri: 8AM–7PM | Sat: 9AM–2PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-icon">P</span>
-                    <span class="logo-text">Prestige ABA</span>
-                </div>
+                <a href="#home" class="logo">
+                    <img src="logo.jpg" alt="Prestige ABA Therapy" class="logo-img">
+                </a>
                 <div class="nav-links" id="navLinks">
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
+                    <a href="#why-us">Why Us</a>
                     <a href="#team">Team</a>
-                    <a href="#testimonials">Testimonials</a>
-                    <a href="#contact" class="btn-nav">Get Started</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact" class="btn-nav"><i class="fas fa-calendar-check"></i> Get Started</a>
                 </div>
-                <button class="mobile-toggle" id="mobileToggle">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -37,59 +64,77 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
+    <section id="home" class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <span class="badge">BCBA Certified • Ages 2-21</span>
-                    <h1 class="hero-title">Empowering Children Through <span class="gradient-text">ABA Therapy</span></h1>
-                    <p class="hero-subtitle">Evidence-based Applied Behavior Analysis services designed to help your child reach their full potential in Chester County, PA.</p>
+                    <span class="hero-badge"><i class="fas fa-certificate"></i> BCBA Certified • Chester County, PA</span>
+                    <h1>Empowering Children Through <span class="highlight">ABA Therapy</span></h1>
+                    <p class="hero-subtitle">Evidence-based Applied Behavior Analysis services designed to help your child reach their full potential. Serving ages 2–21.</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
-                        <a href="#services" class="btn btn-secondary">Our Services</a>
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Schedule Free Consultation</a>
+                        <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Explore Services</a>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">8+</span>
-                            <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="hero-stats-row">
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <span class="hero-stat-num" data-count="8">0</span><span class="hero-stat-suffix">+</span>
+                            <span class="hero-stat-label">Years Experience</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Family Satisfaction</span>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon"><i class="fas fa-child"></i></div>
+                        <div>
+                            <span class="hero-stat-label" style="font-size:1.8rem;font-weight:800;color:#fff">2–21</span>
+                            <span class="hero-stat-label">Ages Served</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">6</span>
-                            <span class="stat-label">Specialized Services</span>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div>
+                            <span class="hero-stat-num" data-count="6">0</span>
+                            <span class="hero-stat-label">Core Services</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon"><i class="fas fa-smile"></i></div>
+                        <div>
+                            <span class="hero-stat-num" data-count="100">0</span><span class="hero-stat-suffix">%</span>
+                            <span class="hero-stat-label">Satisfaction</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-badges">
+    <!-- Trust Strip -->
+    <section class="trust-strip">
         <div class="container">
-            <div class="badges-grid">
-                <div class="trust-badge">
+            <div class="trust-items">
+                <div class="trust-item">
                     <i class="fas fa-certificate"></i>
-                    <span>BCBA Certified</span>
+                    <div><strong>BCBA Certified</strong><span>Board Certified Analysts</span></div>
                 </div>
-                <div class="trust-badge">
+                <div class="trust-item">
                     <i class="fas fa-home"></i>
-                    <span>In-Home & Center</span>
+                    <div><strong>In-Home & Center</strong><span>Flexible locations</span></div>
                 </div>
-                <div class="trust-badge">
+                <div class="trust-item">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Insurance Accepted</span>
+                    <div><strong>Insurance Accepted</strong><span>Aetna, Geisinger, Highmark</span></div>
                 </div>
-                <div class="trust-badge">
+                <div class="trust-item">
                     <i class="fas fa-chart-line"></i>
-                    <span>Data-Driven Care</span>
+                    <div><strong>Data-Driven Care</strong><span>Systematic monitoring</span></div>
                 </div>
             </div>
         </div>
@@ -98,32 +143,30 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h2 class="section-title">Welcome to Prestige ABA Therapy</h2>
-                <p class="section-subtitle">Dedicated to providing high-quality, evidence-based care to children and young adults in Chester County, Pennsylvania</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Evidence-Based Methods</h3>
-                    <p>Backed by decades of research and proven results in behavior science</p>
+            <div class="about-layout">
+                <div class="about-left">
+                    <span class="section-tag">About Us</span>
+                    <h2>Welcome to <span class="highlight">Prestige ABA Therapy</span></h2>
+                    <p class="about-intro">Prestige ABA Therapy LLC is dedicated to providing high-quality, evidence-based Intensive Behavioral Health Services (IBHS) to children, youth, and young adults ages 2–21 in Chester County, Pennsylvania.</p>
+                    <p>We prioritize a safe and nurturing environment where children learn and develop foundational skills through play-based, Natural Environment Teaching, and Discrete Trial Teaching — with quality and compassionate care.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top:24px"><i class="fas fa-phone"></i> Get In Touch</a>
                 </div>
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-user-check"></i>
+                <div class="about-right">
+                    <div class="about-card">
+                        <div class="about-card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Evidence-Based Methods</h3>
+                        <p>Backed by decades of research and proven results in behavior science</p>
                     </div>
-                    <h3>Individualized Plans</h3>
-                    <p>Every child receives a customized treatment plan tailored to their unique needs</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
+                    <div class="about-card">
+                        <div class="about-card-icon"><i class="fas fa-user-check"></i></div>
+                        <h3>Individualized Plans</h3>
+                        <p>Every child receives a customized treatment plan tailored to their unique needs</p>
                     </div>
-                    <h3>Family-Centered</h3>
-                    <p>We work closely with families to ensure consistency and lasting progress</p>
+                    <div class="about-card">
+                        <div class="about-card-icon"><i class="fas fa-users"></i></div>
+                        <h3>Family-Centered</h3>
+                        <p>We work closely with families to ensure consistency and lasting progress</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,88 +175,77 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2 class="section-title">Comprehensive ABA Therapy Services</h2>
+            <div class="section-header centered">
+                <span class="section-tag light">Our Services</span>
+                <h2>Comprehensive ABA Therapy <span class="highlight-light">Services</span></h2>
+                <p class="section-sub">Specialized, evidence-based programs tailored to your child's unique needs</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-number">01</div>
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
+                    <div class="service-num">01</div>
+                    <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
                     <h3>Behavior Analytic Services</h3>
                     <p>Provided by BCBAs and Licensed Behavior Specialists — the clinical backbone of your child's care.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Functional Behavior Assessments</li>
-                        <li><i class="fas fa-check"></i> Individualized Treatment Plans</li>
-                        <li><i class="fas fa-check"></i> Clinical Data Review</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Functional Behavior Assessments (FBA)</li>
+                        <li><i class="fas fa-check-circle"></i> Individualized Treatment Plans (ITP)</li>
+                        <li><i class="fas fa-check-circle"></i> Clinical data review & decision-making</li>
                     </ul>
                 </div>
                 <div class="service-card featured">
                     <div class="service-badge">Core Service</div>
-                    <div class="service-number">02</div>
-                    <div class="service-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
+                    <div class="service-num">02</div>
+                    <div class="service-icon"><i class="fas fa-child"></i></div>
                     <h3>BHT-ABA Individual Services</h3>
                     <p>One-on-one, face-to-face ABA therapy delivered in your child's home, school, or community.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> DTT, NET, Verbal Behavior & FCT</li>
-                        <li><i class="fas fa-check"></i> Behavior Reduction & Skill Building</li>
-                        <li><i class="fas fa-check"></i> Systematic Data Collection</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> DTT, NET, Verbal Behavior & FCT</li>
+                        <li><i class="fas fa-check-circle"></i> Behavior reduction & skill building</li>
+                        <li><i class="fas fa-check-circle"></i> Systematic data collection</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">03</div>
-                    <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Behavior Consultation</h3>
+                    <div class="service-num">03</div>
+                    <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Behavior Consultation — ABA</h3>
                     <p>Clinical oversight of treatment planning, progress monitoring, and coordination of care.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Treatment Plan Development</li>
-                        <li><i class="fas fa-check"></i> Progress Monitoring</li>
-                        <li><i class="fas fa-check"></i> School & Provider Coordination</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Treatment plan development</li>
+                        <li><i class="fas fa-check-circle"></i> Progress monitoring & data analysis</li>
+                        <li><i class="fas fa-check-circle"></i> School & provider coordination</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">04</div>
-                    <div class="service-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
+                    <div class="service-num">04</div>
+                    <div class="service-icon"><i class="fas fa-user-friends"></i></div>
                     <h3>Group ABA Services</h3>
                     <p>Structured small-group sessions targeting social skills and peer interaction.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Social Skills & Cooperative Play</li>
-                        <li><i class="fas fa-check"></i> Turn-Taking & Peer Interaction</li>
-                        <li><i class="fas fa-check"></i> Max 10 Children Per Session</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Social skills & cooperative play</li>
+                        <li><i class="fas fa-check-circle"></i> Turn-taking & peer interaction</li>
+                        <li><i class="fas fa-check-circle"></i> Max 10 children per session</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">05</div>
-                    <div class="service-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
+                    <div class="service-num">05</div>
+                    <div class="service-icon"><i class="fas fa-tasks"></i></div>
                     <h3>Assessment Services</h3>
                     <p>Comprehensive behavioral assessments completed within 15 days of starting services.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Functional Analysis</li>
-                        <li><i class="fas fa-check"></i> Strengths-Based Reporting</li>
-                        <li><i class="fas fa-check"></i> Periodic Reassessments</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Functional analysis & strengths-based reporting</li>
+                        <li><i class="fas fa-check-circle"></i> Identification of therapeutic needs</li>
+                        <li><i class="fas fa-check-circle"></i> Periodic reassessments & progress review</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">06</div>
-                    <div class="service-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Caregiver Training</h3>
+                    <div class="service-num">06</div>
+                    <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Caregiver Training & Family Support</h3>
                     <p>Hands-on training to equip families with tools to support their child's progress.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Behavior Management Strategies</li>
-                        <li><i class="fas fa-check"></i> Reinforcement & Consistency Skills</li>
-                        <li><i class="fas fa-check"></i> Crisis Prevention & Response</li>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Behavior management strategies</li>
+                        <li><i class="fas fa-check-circle"></i> Reinforcement & consistency skills</li>
+                        <li><i class="fas fa-check-circle"></i> Crisis prevention & response</li>
                     </ul>
                 </div>
             </div>
@@ -221,50 +253,42 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose">
+    <section id="why-us" class="why-us">
         <div class="container">
-            <div class="why-content">
-                <div class="why-text">
-                    <span class="section-tag">Why Choose Us</span>
-                    <h2 class="section-title">What Makes Prestige Different</h2>
-                    <p class="section-subtitle">Our commitment to clinical excellence and compassionate care sets us apart</p>
-                    <div class="why-features">
-                        <div class="why-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Certified Professionals</h4>
-                                <p>BCBAs and RBTs — all licensed and credentialed clinicians</p>
-                            </div>
-                        </div>
-                        <div class="why-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Personalized Approach</h4>
-                                <p>Individualized plans based on comprehensive assessments</p>
-                            </div>
-                        </div>
-                        <div class="why-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Family Collaboration</h4>
-                                <p>Regular updates, training, and support for the whole family</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="section-header centered">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>What Makes Prestige <span class="highlight">Different</span></h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-award"></i></div>
+                    <h4>Certified Professionals</h4>
+                    <p>BCBAs and RBTs — all licensed and credentialed clinicians</p>
                 </div>
-                <div class="why-image">
-                    <div class="image-card">
-                        <div class="floating-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Proven Results</span>
-                        </div>
-                    </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Personalized Approach</h4>
+                    <p>Individualized plans based on comprehensive assessments</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Family Collaboration</h4>
+                    <p>Regular updates, training, and support for the whole family</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Proven Results</h4>
+                    <p>Evidence-based methods with data-driven progress monitoring</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4>Flexible Services</h4>
+                    <p>In-home, center-based, and school support options available</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Insurance Accepted</h4>
+                    <p>We navigate coverage and authorization so you don't have to</p>
                 </div>
             </div>
         </div>
@@ -273,31 +297,27 @@
     <!-- Process Section -->
     <section class="process">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Getting Started</span>
-                <h2 class="section-title">Simple 3-Step Process</h2>
+            <div class="section-header centered">
+                <span class="section-tag light">Getting Started</span>
+                <h2 class="white">Simple <span class="highlight-light">3-Step</span> Process</h2>
             </div>
-            <div class="process-timeline">
+            <div class="process-steps">
                 <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Initial Contact</h3>
-                        <p>Reach out by phone or form. Our team gathers basic information and verifies your insurance coverage.</p>
-                    </div>
+                    <div class="step-circle">1</div>
+                    <div class="step-line"></div>
+                    <h3>Initial Contact</h3>
+                    <p>Reach out by phone or form. Our team gathers basic information and verifies your insurance coverage.</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Assessment</h3>
-                        <p>A BCBA conducts a comprehensive behavioral assessment within 15 days to understand your child's needs.</p>
-                    </div>
+                    <div class="step-circle">2</div>
+                    <div class="step-line"></div>
+                    <h3>Assessment</h3>
+                    <p>A BCBA conducts a comprehensive behavioral assessment within 15 days to understand your child's needs.</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Start Services</h3>
-                        <p>Your child's individualized treatment plan begins with a dedicated team working toward their goals.</p>
-                    </div>
+                    <div class="step-circle">3</div>
+                    <h3>Start Services</h3>
+                    <p>Your child's individualized treatment plan begins with a dedicated team working toward their goals.</p>
                 </div>
             </div>
         </div>
@@ -306,48 +326,41 @@
     <!-- Team Section -->
     <section id="team" class="team">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header centered">
                 <span class="section-tag">Our Team</span>
-                <h2 class="section-title">Meet Our Experts</h2>
+                <h2>Meet Our <span class="highlight">Experts</span></h2>
             </div>
             <div class="team-grid">
-                <div class="team-card featured">
-                    <div class="team-image">
-                        <div class="team-initials">KD</div>
+                <div class="team-card director">
+                    <div class="team-avatar"><span>KD</span></div>
+                    <div class="team-meta">
+                        <span class="team-badge">Owner & Clinical Director</span>
                     </div>
-                    <div class="team-info">
-                        <h3>Kadiatou Diallo, MS, LBS, BCBA</h3>
-                        <p class="team-role">Owner & Clinical Director</p>
-                        <p class="team-bio">BCBA & Licensed Behavior Specialist with 8+ years in ABA. Master's in Special Education from St. Joseph University, Philadelphia.</p>
-                        <div class="team-badges">
-                            <span class="badge-small">Clinical Supervision</span>
-                            <span class="badge-small">FBA & Treatment Planning</span>
-                        </div>
+                    <h3>Kadiatou Diallo, MS, LBS, BCBA</h3>
+                    <p class="team-role">BCBA & Licensed Behavior Specialist</p>
+                    <p>8+ years in ABA. Master's in Special Education from St. Joseph University, Philadelphia.</p>
+                    <div class="team-tags">
+                        <span>Clinical Supervision</span>
+                        <span>FBA & Treatment Planning</span>
                     </div>
                 </div>
                 <div class="team-card">
-                    <div class="team-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Behavior Analysts</h3>
-                    <p class="team-role">BCBAs & Consultation Staff</p>
-                    <p class="team-bio">Our BCBAs conduct functional assessments, develop individualized treatment plans, and provide direct clinical supervision.</p>
+                    <div class="team-icon-circle"><i class="fas fa-user-md"></i></div>
+                    <h3>Board Certified Behavior Analysts</h3>
+                    <p class="team-role">Behavior Analytic & Consultation Staff</p>
+                    <p>Our BCBAs conduct functional assessments, develop individualized treatment plans, and provide direct clinical supervision.</p>
                 </div>
                 <div class="team-card">
-                    <div class="team-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
+                    <div class="team-icon-circle"><i class="fas fa-hands-helping"></i></div>
                     <h3>Behavioral Health Technicians</h3>
                     <p class="team-role">BHT-ABA Direct Service Staff</p>
-                    <p class="team-bio">Our BHTs and RBTs deliver one-on-one ABA sessions in home, school, and community settings under BCBA supervision.</p>
+                    <p>Our BHTs and RBTs deliver one-on-one ABA sessions in home, school, and community settings under BCBA supervision.</p>
                 </div>
                 <div class="team-card">
-                    <div class="team-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
+                    <div class="team-icon-circle"><i class="fas fa-calendar-alt"></i></div>
                     <h3>Administrative Team</h3>
                     <p class="team-role">Support Staff</p>
-                    <p class="team-bio">Our admin staff manage scheduling, documentation, insurance coordination, and ensure every family has a smooth experience.</p>
+                    <p>Our admin staff manage scheduling, documentation, insurance coordination, and family support.</p>
                 </div>
             </div>
         </div>
@@ -356,69 +369,39 @@
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Families Are Saying</h2>
+            <div class="section-header centered">
+                <span class="section-tag light">Testimonials</span>
+                <h2 class="white">What Families <span class="highlight-light">Are Saying</span></h2>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Prestige ABA has been transformative for our son. The team is so professional and caring. We've seen incredible progress in his communication and social skills in just a few months."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
-                        <div class="author-info">
-                            <h4>Sarah M.</h4>
-                            <p>Parent of 7-year-old</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <p>"Prestige ABA has been transformative for our son. The team is so professional and caring. We've seen incredible progress in his communication and social skills in just a few months."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">S</div>
+                        <div><strong>Sarah M.</strong><span>Parent of 7-year-old</span></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"The individualized approach they take with our daughter is exceptional. The BCBAs are highly skilled and genuinely care about her progress. I highly recommend Prestige ABA."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
-                        <div class="author-info">
-                            <h4>James K.</h4>
-                            <p>Parent of 9-year-old</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <p>"The individualized approach they take with our daughter is exceptional. The BCBAs are highly skilled and genuinely care about her progress. I highly recommend Prestige ABA."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">J</div>
+                        <div><strong>James K.</strong><span>Parent of 9-year-old</span></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"From the very first assessment, Prestige ABA made us feel heard and supported. The caregiver training has given us tools to continue progress at home. Truly life-changing."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>Maria L.</h4>
-                            <p>Parent of 12-year-old</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <p>"From the very first assessment, Prestige ABA made us feel heard and supported. The caregiver training has given us tools to continue progress at home. Truly life-changing."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">M</div>
+                        <div><strong>Maria L.</strong><span>Parent of 12-year-old</span></div>
                     </div>
                 </div>
             </div>
@@ -428,94 +411,79 @@
     <!-- Insurance Section -->
     <section class="insurance">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header centered">
                 <span class="section-tag">Insurance</span>
-                <h2 class="section-title">We Accept Major Insurance Plans</h2>
+                <h2>We Accept Major <span class="highlight">Insurance Plans</span></h2>
             </div>
             <div class="insurance-grid">
                 <div class="insurance-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Aetna</h3>
+                    <div class="ins-logo">
+                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#7B2B85" font-size="36" font-weight="bold" font-family="Arial, sans-serif">Aetna</text>
+                        </svg>
+                    </div>
+                    <h4>Aetna</h4>
                     <p>Comprehensive ABA therapy coverage</p>
                 </div>
                 <div class="insurance-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Geisinger Health Plan</h3>
+                    <div class="ins-logo">
+                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="50%" y="40%" dominant-baseline="middle" text-anchor="middle" fill="#0066B3" font-size="26" font-weight="bold" font-family="Arial, sans-serif">Geisinger</text>
+                            <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" fill="#0066B3" font-size="18" font-family="Arial, sans-serif">Health Plan</text>
+                        </svg>
+                    </div>
+                    <h4>Geisinger Health Plan</h4>
                     <p>Pennsylvania-based health coverage</p>
                 </div>
                 <div class="insurance-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Highmark of Pennsylvania</h3>
+                    <div class="ins-logo">
+                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="50%" y="40%" dominant-baseline="middle" text-anchor="middle" fill="#003087" font-size="28" font-weight="bold" font-family="Arial, sans-serif">Highmark</text>
+                            <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" fill="#003087" font-size="15" font-family="Arial, sans-serif">of Pennsylvania</text>
+                        </svg>
+                    </div>
+                    <h4>Highmark of Pennsylvania</h4>
                     <p>Blue Cross Blue Shield coverage</p>
                 </div>
             </div>
             <div class="insurance-cta">
-                <p>Not sure if your insurance is accepted? <a href="#contact">Contact us today</a> — our team will verify your coverage and guide you through the authorization process.</p>
+                <p>Not sure if your insurance is accepted? <strong>Contact us today</strong> — our team will verify your coverage and guide you through the authorization process.</p>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-shield-alt"></i> Verify My Insurance</a>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">FAQ</span>
-                <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="section-header centered">
+                <span class="section-tag light">FAQ</span>
+                <h2 class="white">Frequently Asked <span class="highlight-light">Questions</span></h2>
             </div>
-            <div class="faq-grid">
+            <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is ABA therapy?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Applied Behavior Analysis (ABA) is a scientifically validated approach to understanding behavior and how it is affected by the environment. ABA therapy focuses on teaching essential skills, reducing challenging behaviors, and increasing social, communication, and adaptive functioning.</p>
-                    </div>
+                    <button class="faq-q">What is ABA therapy? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>Applied Behavior Analysis (ABA) is a scientifically validated approach to understanding behavior and how it is affected by the environment. ABA therapy focuses on teaching essential skills, reducing challenging behaviors, and increasing social, communication, and adaptive functioning — enabling individuals to achieve greater independence in home, school, and community settings.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Who qualifies for ABA services?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We serve children, youth, and young adults ages 2–21 diagnosed with autism spectrum disorder (ASD) or other developmental disabilities. A formal autism diagnosis from a licensed professional is typically required for insurance authorization.</p>
-                    </div>
+                    <button class="faq-q">Who qualifies for ABA services? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>We serve children, youth, and young adults ages 2–21 diagnosed with autism spectrum disorder (ASD) or other developmental disabilities. A formal autism diagnosis from a licensed professional is typically required for insurance authorization.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long are therapy sessions?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Session length varies based on your child's individualized treatment plan and insurance authorization. Typically, sessions range from 2 to 4 hours for BHT-ABA individual services. BCBA supervision visits are scheduled regularly throughout the month.</p>
-                    </div>
+                    <button class="faq-q">How long are therapy sessions? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>Session length varies based on your child's individualized treatment plan and insurance authorization. Typically, sessions range from 2 to 4 hours for BHT-ABA individual services. BCBA supervision visits are scheduled regularly throughout the month.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Where do services take place?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We offer flexible service locations including your child's home, school, our center, and community settings. Location is determined based on your child's treatment goals and what environment best supports their learning.</p>
-                    </div>
+                    <button class="faq-q">Where do services take place? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>We offer flexible service locations including your child's home, school, our center, and community settings. Location is determined based on your child's treatment goals and what environment best supports their learning.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do I get started?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Getting started is easy. Contact us via phone or our online form. Our team will verify your insurance, discuss your child's needs, and schedule an initial assessment with a BCBA. The assessment is completed within 15 days of starting services.</p>
-                    </div>
+                    <button class="faq-q">How do I get started? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>Getting started is easy. Contact us via phone or our online form. Our team will verify your insurance, discuss your child's needs, and schedule an initial assessment with a BCBA. The assessment is completed within 15 days of starting services.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do you accept insurance?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! We accept Aetna, Geisinger Health Plan, and Highmark of Pennsylvania. Pennsylvania mandates insurance coverage for ABA therapy for autism. Our team will verify your specific benefits and guide you through the authorization process at no cost to you.</p>
-                    </div>
+                    <button class="faq-q">Does insurance cover ABA therapy? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-a"><p>Yes! We accept Aetna, Geisinger Health Plan, and Highmark of Pennsylvania. Pennsylvania mandates insurance coverage for ABA therapy for autism. Our team will verify your specific benefits and guide you through the authorization process at no cost to you.</p></div>
                 </div>
             </div>
         </div>
@@ -527,55 +495,61 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <span class="section-tag">Get Started</span>
-                    <h2 class="section-title">Ready to Take the First Step?</h2>
-                    <p class="section-subtitle">Schedule a free consultation with our clinical team. We'll answer your questions, verify your insurance, and create a personalized plan for your child.</p>
+                    <h2>Ready to Take the <span class="highlight">First Step?</span></h2>
+                    <p>Schedule a free consultation with our clinical team. We'll answer your questions, verify your insurance, and create a personalized plan for your child.</p>
                     <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="detail-text">
-                                <h4>Location</h4>
-                                <p>525 Highlands Blvd, Suite 105<br>Coatesville, PA</p>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Location</strong>
+                                <p>525 Highlands Blvd, Suite 105, Coatesville, PA</p>
                             </div>
                         </div>
-                        <div class="contact-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="detail-text">
-                                <h4>Hours</h4>
-                                <p>Mon–Fri: 8AM–7PM<br>Sat: 9AM–2PM</p>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <strong>Hours</strong>
+                                <p>Mon–Fri: 8AM–7PM | Sat: 9AM–2PM</p>
                             </div>
                         </div>
-                        <div class="contact-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="detail-text">
-                                <h4>Phone</h4>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <strong>Phone</strong>
                                 <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@prestigeaba.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="contact-form-box">
+                    <h3>Schedule Consultation</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="childAge">Child's Age</label>
-                            <input type="text" id="childAge" name="childAge" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="childAge">Child's Age</label>
+                                <input type="text" id="childAge" name="childAge" placeholder="e.g. 5 years old" required>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="insurance">Insurance Provider</label>
@@ -587,11 +561,11 @@
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <div class="form-group full-width">
-                            <label for="message">Tell us about your child</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                        <div class="form-group">
+                            <label for="msg">Tell us about your child</label>
+                            <textarea id="msg" name="msg" rows="4" placeholder="Share any relevant details..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Schedule Consultation</button>
+                        <button type="submit" class="btn btn-primary full-w"><i class="fas fa-calendar-check"></i> Schedule Free Consultation</button>
                     </form>
                 </div>
             </div>
@@ -601,12 +575,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">
-                        <span class="logo-icon">P</span>
-                        <span class="logo-text">Prestige ABA</span>
-                    </div>
+                    <img src="logo.jpg" alt="Prestige ABA Therapy" class="footer-logo-img">
                     <p>Evidence-based Applied Behavior Analysis services for children and young adults in Chester County, PA.</p>
                 </div>
                 <div class="footer-col">
@@ -615,6 +586,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#team">Our Team</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -625,15 +597,17 @@
                         <li><a href="#services">Individual Therapy</a></li>
                         <li><a href="#services">Group Sessions</a></li>
                         <li><a href="#services">Caregiver Training</a></li>
+                        <li><a href="#services">Assessments</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4>Contact Info</h4>
                     <ul>
-                        <li>525 Highlands Blvd, Suite 105</li>
-                        <li>Coatesville, PA</li>
-                        <li>Mon–Fri: 8AM–7PM</li>
-                        <li>Sat: 9AM–2PM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 525 Highlands Blvd, Suite 105</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Coatesville, PA</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-clock"></i> Mon–Fri: 8AM–7PM</li>
+                        <li><i class="fas fa-clock"></i> Sat: 9AM–2PM</li>
                     </ul>
                 </div>
             </div>
