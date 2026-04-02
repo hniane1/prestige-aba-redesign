@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 110">
+  <!-- Blue Cross Icon -->
+  <g transform="translate(15, 12)">
+    <rect x="20" y="0" width="20" height="60" rx="3" fill="#003DA5"/>
+    <rect x="0" y="20" width="60" height="20" rx="3" fill="#003DA5"/>
+  </g>
+  <!-- Blue Shield Icon -->
+  <g transform="translate(15, 12)">
+    <path d="M75 5 L95 5 L95 35 Q95 55 85 60 Q75 55 75 35Z" fill="none" stroke="#003DA5" stroke-width="4"/>
+    <path d="M80 12 L90 12 L90 33 Q90 48 85 52 Q80 48 80 33Z" fill="#003DA5" opacity="0.3"/>
+  </g>
+  <!-- Highmark Text -->
+  <text x="125" y="42" fill="#003DA5" font-size="36" font-weight="700" font-family="'Helvetica Neue', Arial, sans-serif" letter-spacing="0.5">Highmark</text>
+  <!-- Blue Cross Blue Shield subtitle -->
+  <text x="125" y="65" fill="#003DA5" font-size="13" font-weight="500" font-family="'Helvetica Neue', Arial, sans-serif" letter-spacing="2">BLUE CROSS BLUE SHIELD</text>
+  <!-- of Pennsylvania -->
+  <text x="125" y="82" fill="#003DA5" font-size="12" font-weight="400" font-family="'Helvetica Neue', Arial, sans-serif" letter-spacing="2" opacity="0.7">OF PENNSYLVANIA</text>
+</svg>

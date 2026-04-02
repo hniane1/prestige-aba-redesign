@@ -388,8 +388,8 @@ h2.white, h2.white span { color: var(--white); }
     text-align:center; transition: all .3s ease;
 }
 .insurance-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.ins-logo { margin-bottom:16px; }
-.ins-logo svg { width:160px; height:60px; }
+.ins-logo { margin-bottom:16px; display:flex; justify-content:center; align-items:center; min-height:70px; }
+.ins-logo img { max-width:200px; height:auto; max-height:70px; }
 .insurance-card h4 { margin-bottom:8px; color: var(--dark); }
 .insurance-card p { color: var(--text-light); font-size:.9rem; }
 .insurance-cta {

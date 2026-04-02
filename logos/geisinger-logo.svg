@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+  <!-- Geisinger Green Swoosh Mark -->
+  <g transform="translate(20, 10)">
+    <path d="M0 40 Q15 0 40 15 Q55 25 35 45 Q20 60 0 40Z" fill="#00833E"/>
+    <path d="M20 30 Q35 10 50 25 Q60 35 45 50 Q30 60 20 30Z" fill="#4CB648" opacity="0.8"/>
+  </g>
+  <!-- Geisinger Text -->
+  <text x="85" y="55" fill="#003B71" font-size="40" font-weight="700" font-family="'Helvetica Neue', Arial, sans-serif" letter-spacing="1">Geisinger</text>
+  <!-- Health Plan subtitle -->
+  <text x="85" y="78" fill="#003B71" font-size="18" font-weight="400" font-family="'Helvetica Neue', Arial, sans-serif" letter-spacing="3" opacity="0.7">HEALTH PLAN</text>
+</svg>
